@@ -1,0 +1,27 @@
+// Écrire un algorithme qui lit une phrase, qui se termine par un point, caractère par caractère pour déterminer :
+// Le nombre de mots dans la phrase (en supposant que les mots sont séparés par un seul espace).
+// Le nombre de voyelles dans la phrase.
+// Vous devez garder à l'esprit que :
+// Chaque caractère sera traité séparément.
+// Le dernier caractère est le point.
+
+ALGORITHM Phrase
+VAR
+    tab: ARRAY_OF CHAR[24];
+    i,voy,mot:INTEGER;
+BEGIN
+    // on initialise les variables
+    tab:=["Welcome to gomycode."];
+    i:=0;
+    mot:=0;
+    voy:=0; 
+    FOR i FROM 0 TO tab.length-1 STEP 1  DO
+        IF (tab[i]===" ") THEN
+            mot=mot+1;
+        END_IF IF (tab[i]==="a" OR tab[i]==="e" OR tab[i]==="i" OR tab[i]==="o" OR tab[i]==="u" OR tab[i]==="y") THEN
+                voy=voy+1;
+                END_IF
+    END_FOR
+
+    Write("le nombre de voyelle est de ", voy, " et le nombre de mot est de" ,mot+1);
+END

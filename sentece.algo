@@ -1,0 +1,37 @@
+ALGORITHM phrase
+VAR
+    phrase :  ARRAY_OF CHAR[];
+    i,voyelle,mots ,n: INTEGER;	
+BEGIN
+    voyelle :=0;
+    mots :=0;
+    Write("le nombre de caracteres de votre phrase");
+    Read(n);
+    Write("Ecrivez votre phrase");
+        FOR i FROM 0 TO n STEP 1  DO
+            Read(phrase[i]);
+        END_FOR    
+    
+    IF (phrase[phrase.length-1]  === "." ) THEN //Si le dernier element de phrase = point
+        
+        FOR i FROM 0 TO phrase.length-1 STEP 1  DO
+            
+            IF (phrase[i] == " ") THEN //on compte le espace pour savoir le nombre de mots
+                mots := mots + 1;
+            END_IF
+            IF (phrase[i]== "a" OR phrase[i]=="e" OR phrase[i]=="i" OR phrase[i]=="u" OR phrase[i]=="o" OR phrase[i]=="y"  ) THEN
+                voyelle := voyelle +1 ;
+            END_IF
+
+        END_FOR
+
+        Write("Le nombre de mots est de ",mots+1 , "le nombre de voyelle est de ", voyelle);
+    
+    ELSE 
+        Write("Votre phrase est imcomplette y manque un point");   
+    
+    END_IF
+
+
+
+END

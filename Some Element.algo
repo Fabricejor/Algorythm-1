@@ -1,0 +1,62 @@
+ALGORITHM SommeElement
+VAR
+    ensemble1 : ARRAY_OF INTEGER[n];
+    ensemble2 : ARRAY_OF INTEGER[m];
+    elements : ARRAY_OF INTEGER[100];
+    sum,i,j,n,m : INTEGER ;
+    eltcourant:INTEGER;
+    present : BOOLEAN;
+BEGIN
+    sum = 0;
+    // ! On remplis les emsembles
+    Write("Vous aller remplir deux ensembles que vous aller comparer mais dabord...
+            \n Donner la taille de chacun d'ente eux ");
+    Read(n,m);
+    Write("Vous aller remplir le premier ensemble:");
+    FOR i FROM 0 TO ensemble1.length-1 STEP 1  DO
+        Read(ensemble1[i]);
+    END_FOR
+    Write("Vous aller remplir le deuxieme ensemble:");
+    FOR j FROM 0 TO ensemble2.length-1 STEP 1  DO
+        Read(ensemble2[j]);
+    END_FOR
+    
+    //! On les compare
+    FOR i FROM 0 TO ensemble1.length-1 STEP 1  DO
+        eltcourant = ensemble1[i];
+        present = false;
+        // on range un element de lensemble1 dans une variable et on la comprare a chaque element de lensemble 2
+        FOR j FROM 0 TO ensemble2.length-1 STEP 1  DO
+            IF (eltcourant == ensemble2[j] ) THEN
+                present == true;
+                break;//on trouve une occurrence et on stop la boucle de j
+            END_IF
+        END_FOR
+        // si la variable present est toujours fausse l'element de lensemble 1 n'est pas present dans l'ensemble 2
+        IF (present == false) THEN
+            sum = sum + eltcourant;
+            //et on range l'eleemnt dans notre troisieme tableau d'element distinct
+            eleemnt[] = eltcourant;
+        END_IF
+    END_FOR
+    
+    //? on fais la meme chose avec chaque element de lensemble2 
+    FOR i FROM 0 TO ensemble2.length-1 STEP 1  DO
+        eltcourant = ensemble2[i];
+        present = false;
+        // on range un element de lensemble //!DEUX  
+        // dans une variable et on la comprare a chaque element de lensemble //!UN
+        FOR j FROM 0 TO ensemble1.length-1 STEP 1  DO
+            IF (eltcourant == ensemble1[j] ) THEN
+                present == true;
+                break;//on trouve une occurrence et on stop la boucle de j
+            END_IF
+        END_FOR
+        // si la variable present est toujours fausse l'element de lensemble 1 n'est pas present dans l'ensemble 2
+        IF (present == false) THEN
+            sum = sum + eltcourant;
+            //et on range l'eleemnt dans notre troisieme tableau d'element distinct
+            eleemnt[] = eltcourant;
+        END_IF
+    END_FOR
+END
